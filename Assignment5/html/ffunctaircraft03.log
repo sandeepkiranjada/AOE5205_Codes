@@ -1,0 +1,328 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2016.10.29)  21 OCT 2019 12:05
+entering extended mode
+**C:/Users/sande/Documents/AOE5204/AOE5205_Codes/Assignment5/html/ffunctaircraf
+t03.tex
+
+(C:/Users/sande/Documents/AOE5204/AOE5205_Codes/Assignment5/html/ffunctaircraft
+03.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\Users\sande\Documents\AOE5204\AOE5205_Codes\Assignment5\html\ffunctaircraft
+03.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+)
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiA
+Re,...[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    x                     = [X;Y;Z;V;gamma;psi], the 6-by-1
+ state[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          vector of this system.  The first
+ three[] 
+ []
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          displacement from a reference pos
+ition,[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          Blacksburg airport.  The fourth e
+lement[] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          of x is airspeed (and the Earth-r
+elative[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          speed assuming no wind) in meters
+/second.[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          angle in radians.  The sixth elem
+ent is[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          the aerodynamic model's reference
+ area.[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    CLalpha               The lift curve slope, dCL/dalpha,
+ which[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          (M+1)-by-1 vector of times, in se
+conds,[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          at which the airplane control inp
+uts in[] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          increasing vector.  Also, it is r
+equired[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          that tinhist(1,1) = tin0 <= t <= 
+tinM = ...[] 
+ []
+
+[2]
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    Thist                 = [T0;T1;T2;...;TM], the (M+1)-by
+-1 vector[] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          of thrust inputs that apply at th
+e times[] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    alphahist             = [alpha0;alpha1;alpha2;...;alpha
+M], the[] 
+ []
+
+
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          inputs that apply at the times in
+ tinhist,[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    phihist               = [phi0;phi1;phi2;...;phiM], the 
+(M+1)-by-1[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          vector of roll/bank-angle inputs 
+that apply[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          to interpolate between times in t
+inhist[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          in order to compute the thrust, a
+ngle-of-[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          attack, and roll/bank angle that 
+apply at[] 
+ []
+
+
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          time t.  These interpolations are
+ computed[] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %    f                     = [Xdot;Ydot;Zdot;Vdot;gammadot;p
+sidot],[] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 253--253
+[]\OT1/cmtt/m/n/10 %                          from the kinematics and dynamics 
+models[] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 alphaTphi = interp1(tinhist,[alphahist,Thist,phihist],t,'
+pchip');[] 
+ []
+
+[3] [4]
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 omegaEarth_ned = [5.80780002889625e-05;0;-4.4095807212346
+5e-05];[] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 a_deltacentrifugal_ned = cross(omegaEarth_ned,cross(omega
+Earth_ned,r_ned));[] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 a_centrifugalcoriolis_ned = a_deltacentrifugal_ned + a_co
+riolis_ned;[] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 a_centrifugalcoriolis_nav = R2atgamma*R3atpsi*a_centrifug
+alcoriolis_ned;[] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 gammadot = (1/V)*((cosphi*oneoverm)*T_sinalpha_plus_L - g
+*cosgamma + ...[] 
+ []
+
+
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 253--253
+[]   \OT1/cmtt/m/n/10 psidot = (1/V_cosgamma)*((sinphi*oneoverm)*T_sinalpha_plu
+s_L - ...[] 
+ []
+
+[5]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 259--259
+[]   \OT1/cmtt/m/n/10 alphaTphi = interp1(tinhist,[alphahist,Thist,phihist],t,'
+pchip');[] 
+ []
+
+[6]
+(C:\Users\sande\Documents\AOE5204\AOE5205_Codes\Assignment5\html\ffunctaircraft
+03.aux) ) 
+Here is how much of TeX's memory you used:
+ 1146 strings out of 493921
+ 15636 string characters out of 3144875
+ 77018 words of memory out of 3000000
+ 4487 multiletter control sequences out of 15000+200000
+ 3808 words of font info for 15 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,5n,19p,310b,240s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.
+pfb>
+Output written on ffunctaircraft03.pdf (6 pages, 37576 bytes).
+PDF statistics:
+ 29 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

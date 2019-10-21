@@ -1,8 +1,23 @@
-%% Problem 1
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    \begin{verbatim}
 function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
                               tinhist,Thist,alphahist,phihist)
 %
-%  Copyright (c) 2019 Mark L. Psiaki.  All rights reserved.  
+%  Copyright (c) 2019 Mark L. Psiaki.  All rights reserved.
 %
 %  This function implements a nonlinear dynamic model
 %  of a point-mass airplane flying over a flat Earth
@@ -24,19 +39,19 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %  This particular function models the coordinate frame as
 %  being centered at the center of the runway of the Blacksburg,
 %  VA airport, which has coordinates latitude = 37.2076389 deg,
-%  longitude = -80.4078333 deg, altitude = 649.7 m.  While it 
+%  longitude = -80.4078333 deg, altitude = 649.7 m.  While it
 %  uses a flat-Earth (i.e., constant) gravity field, its
-%  constant gravity takes into account the Earth's J2 
+%  constant gravity takes into account the Earth's J2
 %  oblatness effect at the coordinate system center and
 %  it subtracts off the centrifugal acceleration of the
 %  coordinate system center as caused by the Earth's rotation.
-%  This model also accounts for the additional centrifugal 
+%  This model also accounts for the additional centrifugal
 %  effects of the Earth's rotation as caused by rotation of
 %  the reference frame and any position offset from the
 %  original of the reference frame.  In addition, it accounts
 %  for the Coriolis acceleration that is caused by the Earth's
 %  rotation.
-%  
+%
 %
 %  Inputs:
 %
@@ -53,9 +68,9 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %                          Y being the eastward displacement from
 %                          a reference position, and -Z being the
 %                          altitude above the Blacksburg, VA
-%                          airport (so that a positive value 
+%                          airport (so that a positive value
 %                          of x(3,1) indicates
-%                          flight below the altitude of the 
+%                          flight below the altitude of the
 %                          Blacksburg airport.  The fourth element
 %                          of x is airspeed (and the Earth-relative
 %                          speed assuming no wind) in meters/second.
@@ -82,30 +97,30 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %                          dimensional.  It is the coefficient
 %                          of CL^2 in the drag coefficient model.
 %
-%    tinhist               = [tin0;tin1;tin2;...;tinM], the 
+%    tinhist               = [tin0;tin1;tin2;...;tinM], the
 %                          (M+1)-by-1 vector of times, in seconds,
 %                          at which the airplane control inputs in
 %                          Thist, alphahist, and phihist are
 %                          defined.  This must be a monotonically
 %                          increasing vector.  Also, it is required
 %                          that tinhist(1,1) = tin0 <= t <= tinM = ...
-%                          tinhist(M+1,1).  Otherwise, an error 
+%                          tinhist(M+1,1).  Otherwise, an error
 %                          condition will occur.
 %
-%    Thist                 = [T0;T1;T2;...;TM], the (M+1)-by-1 vector 
+%    Thist                 = [T0;T1;T2;...;TM], the (M+1)-by-1 vector
 %                          of thrust inputs that apply at the times
 %                          in tinhist, in Newtons.
 %
-%    alphahist             = [alpha0;alpha1;alpha2;...;alphaM], the 
-%                          (M+1)-by-1 vector of angle-of-attack 
-%                          inputs that apply at the times in tinhist, 
+%    alphahist             = [alpha0;alpha1;alpha2;...;alphaM], the
+%                          (M+1)-by-1 vector of angle-of-attack
+%                          inputs that apply at the times in tinhist,
 %                          in radians.
 %
-%    phihist               = [phi0;phi1;phi2;...;phiM], the (M+1)-by-1 
-%                          vector of roll/bank-angle inputs that apply  
+%    phihist               = [phi0;phi1;phi2;...;phiM], the (M+1)-by-1
+%                          vector of roll/bank-angle inputs that apply
 %                          at the times in tinhist, in radians.
 %
-%                          Note: a piecewise cubic hermite 
+%                          Note: a piecewise cubic hermite
 %                          interpolating polynomial is used
 %                          to interpolate between times in tinhist
 %                          in order to compute the thrust, angle-of-
@@ -126,7 +141,7 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %
 
 %
-%  Compute the thrust, angle-of-attack, and roll/bank-angle 
+%  Compute the thrust, angle-of-attack, and roll/bank-angle
 %  inputs that apply at time t.  It is more
 %  efficient to do all three piecewise cubic hermite
 %  interpolations simultaneously, as is done here.
@@ -138,7 +153,7 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %
 %  Compute the air density using a decaying exponential
 %  model.  This model is good to about 1500 m altitude
-%  (about 5000 ft).  This model recognizes that - x(3,1) + 649.7 
+%  (about 5000 ft).  This model recognizes that - x(3,1) + 649.7
 %  is the aircraft altitude above sea level in meters.
 %
    rho_sealevel = 1.225; % kg/m^3
@@ -171,7 +186,7 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %  Earth's rotation vector, i.e., at the coordinate frame
 %  origin.
 %
-   g = 9.79721; % meters/second^2   
+   g = 9.79721; % meters/second^2
 %
 %  Compute the kinematics part of the model.
 %
@@ -186,7 +201,7 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %
 %  Compute the additional centrifugal acceleration term due
 %  to the Earth's rotation rate vector and any offset of the
-%  aircraft position from the coordinate frame center.  
+%  aircraft position from the coordinate frame center.
 %  Also determine the Coriolis acceleration term due
 %  to the Earth's rotation rate vector and any velocity
 %  of the aircraft.  Compute these two accelerations in
@@ -199,7 +214,7 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
    a_coriolis_ned = 2.*cross(omegaEarth_ned,v_ned);
 %
 %  Transform the net acceleration of the delta centrifugal and
-%  Coriolis terms from North/East/Down coordinates into 
+%  Coriolis terms from North/East/Down coordinates into
 %  navigation axes.
 %
 %
@@ -213,8 +228,8 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %
 %  Complete the transformation from ned to nav axes.
 %
-   a_centrifugalcoriolis_ned = a_deltacentrifugal_ned + a_coriolis_ned;              
-   a_centrifugalcoriolis_nav = R2atgamma*R3atpsi*a_centrifugalcoriolis_ned;              
+   a_centrifugalcoriolis_ned = a_deltacentrifugal_ned + a_coriolis_ned;
+   a_centrifugalcoriolis_nav = R2atgamma*R3atpsi*a_centrifugalcoriolis_ned;
 %
 %  Compute the dynamics part of the model.
 %
@@ -235,3 +250,15 @@ function f = ffunctaircraft03(t,x,m,S,CLalpha,CD0,oneoverpiARe,...
 %  into the output vector.
 %
    f = [Xdot;Ydot;Zdot;Vdot;gammadot;psidot];
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}Not enough input arguments.
+
+Error in ffunctaircraft03 (line 133)
+   alphaTphi = interp1(tinhist,[alphahist,Thist,phihist],t,'pchip');
+\end{verbatim} \color{black}
+    
+
+
+\end{document}
+    

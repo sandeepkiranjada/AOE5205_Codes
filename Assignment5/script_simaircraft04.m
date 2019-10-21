@@ -59,7 +59,7 @@
 %
 %  Plot the ground track.
 %
-   figure(1)
+   figure(1+3)
    hold off
    plot(xhist02(:,2)*0.001,xhist02(:,1)*0.001,'b-')
    hold on
@@ -76,7 +76,7 @@
 %  Plot the altitude, airspeed, flight-path angle,
 %  and heading angle time histories.
 %
-   figure(2)
+   figure(2+3)
    subplot(411)
    hold off
    plot(thist02,-xhist02(:,3),'b-')
@@ -117,7 +117,7 @@
 %  Plot the thrust, angle-of-attack, and roll/bank-angle
 %  time histories.
 %
-   figure(3)
+   figure(3+3)
    subplot(311)
    hold off
    plot(tinhist,Thist)
