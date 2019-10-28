@@ -1,0 +1,258 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>momentofinertia01</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-10-27"><meta name="DC.source" content="momentofinertia01.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%%Problem 2</span>
+<span class="keyword">function</span> [Mtot,rcmtot,IMoItot] = momentofinertia01(mvec,rcmmat,IMoIarray)
+<span class="comment">%</span>
+<span class="comment">%  Copyright (c) 2019 Mark L. Psiaki.  All rights reserved.</span>
+<span class="comment">%</span>
+<span class="comment">%  This function computes the total mass, the center of mass,</span>
+<span class="comment">%  and the total moment of inertia of a collection of</span>
+<span class="comment">%  rigid bodies that, taken together, form a larger rigid body.</span>
+<span class="comment">%</span>
+<span class="comment">%  All position vectors, those of the individual rigid bodies'</span>
+<span class="comment">%  centers of mass, rcmi = rcmmat(:,i) for i = 1:N, and that of</span>
+<span class="comment">%  the system center of mass, rcmtot, are given in a common</span>
+<span class="comment">%  coordinate system as are the individual moment-of-inertia</span>
+<span class="comment">%  matrices, IMoIi = IMoIarray(:,:,i), and the final total</span>
+<span class="comment">%  system moment-of-inertia matrix, IMoItot.</span>
+<span class="comment">%</span>
+<span class="comment">%</span>
+<span class="comment">%  Inputs:</span>
+<span class="comment">%</span>
+<span class="comment">%    mvec                  The 1-by-N vector that contains the</span>
+<span class="comment">%                          masses of the individual rigid-body</span>
+<span class="comment">%                          components, in kg units.  mi = mvec(1,i)</span>
+<span class="comment">%                          is the mass of the ith rigid body.</span>
+<span class="comment">%</span>
+<span class="comment">%    rcmmat                The 3-by-N matrix that contains the</span>
+<span class="comment">%                          positions of the centers of mass</span>
+<span class="comment">%                          of the individual rigid bodies,</span>
+<span class="comment">%                          given in meters units and along the</span>
+<span class="comment">%                          common axes that are used</span>
+<span class="comment">%                          throughout these calculations.</span>
+<span class="comment">%                          rcmi = rcmmat(:,i) is the center-</span>
+<span class="comment">%                          of-mass position of the ith</span>
+<span class="comment">%                          rigid body.</span>
+<span class="comment">%</span>
+<span class="comment">%    IMoIarray             The 3-by-3-by-N array that contains</span>
+<span class="comment">%                          the moment-of-inertia matrices of the</span>
+<span class="comment">%                          individual rigid bodies about their</span>
+<span class="comment">%                          respective centers of mass, in</span>
+<span class="comment">%                          kg-m^2 units and along the common</span>
+<span class="comment">%                          axes that are used throughout these</span>
+<span class="comment">%                          calculations. IMoIi =  IMoIarray(:,:,i)</span>
+<span class="comment">%                          is the moment-of-inertia matrix of</span>
+<span class="comment">%                          the ith rigid body about its own</span>
+<span class="comment">%                          center of mass.</span>
+<span class="comment">%</span>
+<span class="comment">%  Outputs:</span>
+<span class="comment">%</span>
+<span class="comment">%    Mtot                  The total mass of the composite</span>
+<span class="comment">%                          rigid body, in kg.</span>
+<span class="comment">%</span>
+<span class="comment">%    rcmtot                The 3-by-1 vector that gives the</span>
+<span class="comment">%                          center of mass of the composite rigid</span>
+<span class="comment">%                          body, in meters and along the common</span>
+<span class="comment">%                          axes that are used throughout these</span>
+<span class="comment">%                          calculations.</span>
+<span class="comment">%</span>
+<span class="comment">%    IMoItot               The 3-by-3 moment-of-inertia matrix</span>
+<span class="comment">%                          of the composite rigid body about its</span>
+<span class="comment">%                          center of mass, in kg-m^2 and along</span>
+<span class="comment">%                          the common axes that are used</span>
+<span class="comment">%                          throughout these calculations.</span>
+<span class="comment">%</span>
+
+<span class="comment">%</span>
+<span class="comment">%  Compute the total mass.</span>
+<span class="comment">%</span>
+   Mtot = sum(mvec);
+<span class="comment">%</span>
+<span class="comment">%  Compute the composite rigid body's center of mass.</span>
+<span class="comment">%</span>
+   N = size(mvec,2);
+   Mtot_rcmtot = zeros(3,1);
+   <span class="keyword">for</span> i = 1:N
+      mi = mvec(1,i);
+      rcmi = rcmmat(:,i);
+      Mtot_rcmtot = Mtot_rcmtot + mi*rcmi;
+   <span class="keyword">end</span>
+   rcmtot = Mtot_rcmtot/Mtot;
+<span class="comment">%</span>
+<span class="comment">%  Compute the composite rigid body's moment-of-inertia</span>
+<span class="comment">%  matrix about its center of mass.</span>
+<span class="comment">%</span>
+   IMoItot = zeros(3,3);
+   <span class="keyword">for</span> i = 1:N
+      mi = mvec(1,i);
+      rcmi = rcmmat(:,i);
+      deltarcmi = rcmi - rcmtot;
+      IMoIi =  IMoIarray(:,:,i);
+      deltaIMoIi = mi*((deltarcmi'*deltarcmi)*eye(3)-(deltarcmi*deltarcmi'));
+      IMoItot = IMoItot + IMoIi + deltaIMoIi;
+   <span class="keyword">end</span>
+</pre><pre class="codeoutput error">Not enough input arguments.
+
+Error in momentofinertia01 (line 67)
+   Mtot = sum(mvec);
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%%Problem 2
+function [Mtot,rcmtot,IMoItot] = momentofinertia01(mvec,rcmmat,IMoIarray)
+%
+%  Copyright (c) 2019 Mark L. Psiaki.  All rights reserved.  
+%
+%  This function computes the total mass, the center of mass,
+%  and the total moment of inertia of a collection of
+%  rigid bodies that, taken together, form a larger rigid body.
+%
+%  All position vectors, those of the individual rigid bodies'
+%  centers of mass, rcmi = rcmmat(:,i) for i = 1:N, and that of 
+%  the system center of mass, rcmtot, are given in a common 
+%  coordinate system as are the individual moment-of-inertia 
+%  matrices, IMoIi = IMoIarray(:,:,i), and the final total 
+%  system moment-of-inertia matrix, IMoItot. 
+%  
+%
+%  Inputs:
+%
+%    mvec                  The 1-by-N vector that contains the
+%                          masses of the individual rigid-body
+%                          components, in kg units.  mi = mvec(1,i)
+%                          is the mass of the ith rigid body.
+%
+%    rcmmat                The 3-by-N matrix that contains the
+%                          positions of the centers of mass
+%                          of the individual rigid bodies,
+%                          given in meters units and along the
+%                          common axes that are used 
+%                          throughout these calculations.
+%                          rcmi = rcmmat(:,i) is the center-
+%                          of-mass position of the ith 
+%                          rigid body.
+%
+%    IMoIarray             The 3-by-3-by-N array that contains
+%                          the moment-of-inertia matrices of the
+%                          individual rigid bodies about their
+%                          respective centers of mass, in
+%                          kg-m^2 units and along the common 
+%                          axes that are used throughout these 
+%                          calculations. IMoIi =  IMoIarray(:,:,i)
+%                          is the moment-of-inertia matrix of
+%                          the ith rigid body about its own
+%                          center of mass.
+%
+%  Outputs:
+%
+%    Mtot                  The total mass of the composite
+%                          rigid body, in kg.
+%
+%    rcmtot                The 3-by-1 vector that gives the
+%                          center of mass of the composite rigid
+%                          body, in meters and along the common 
+%                          axes that are used throughout these 
+%                          calculations. 
+%
+%    IMoItot               The 3-by-3 moment-of-inertia matrix
+%                          of the composite rigid body about its
+%                          center of mass, in kg-m^2 and along 
+%                          the common axes that are used 
+%                          throughout these calculations.
+%
+
+%
+%  Compute the total mass.
+%
+   Mtot = sum(mvec);
+%
+%  Compute the composite rigid body's center of mass.
+%
+   N = size(mvec,2);
+   Mtot_rcmtot = zeros(3,1);
+   for i = 1:N
+      mi = mvec(1,i);
+      rcmi = rcmmat(:,i);
+      Mtot_rcmtot = Mtot_rcmtot + mi*rcmi;
+   end
+   rcmtot = Mtot_rcmtot/Mtot;
+%
+%  Compute the composite rigid body's moment-of-inertia
+%  matrix about its center of mass.
+%
+   IMoItot = zeros(3,3);
+   for i = 1:N
+      mi = mvec(1,i);
+      rcmi = rcmmat(:,i);
+      deltarcmi = rcmi - rcmtot;
+      IMoIi =  IMoIarray(:,:,i);
+      deltaIMoIi = mi*((deltarcmi'*deltarcmi)*eye(3)-(deltarcmi*deltarcmi'));
+      IMoItot = IMoItot + IMoIi + deltaIMoIi;
+   end
+##### SOURCE END #####
+--></body></html>
