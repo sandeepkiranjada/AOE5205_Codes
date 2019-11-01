@@ -72,28 +72,31 @@ function f = ffunctgravgradsc02(t,x,IMoIbody,norbit)
 %  body axes.
 %
    omegavec = x(5:7);
-   deltaomegavec = omegavec - ????;
+   deltaomegavec = omegavec - R*[0;-norbit;0];
 %
 %  Determine the quaternion time rate of change from
 %  the quaternion kinematics model.
 %
-   Omegamat = ????
-   qdot = ????;
+   Omegamat = [0 deltaomegavec(3) -deltaomegavec(2) deltaomegavec(1);...
+               -deltaomegavec(3) 0 deltaomegavec(1) deltaomegavec(2);...
+               deltaomegavec(2) -deltaomegavec(1) 0 deltaomegavec(3);...
+               -deltaomegavec(1) -deltaomegavec(2) -deltaomegavec(3) 0];
+   qdot = 0.5*Omegamat*q;
 %
 %  Compute the unit direction vector from the Earth to 
 %  the spacecraft and given in spacecraft body coordinates:
 %
-   rhatcmvec = ????;
+   rhatcmvec = R*[0 0 -1]';
 %
 %  Compute the gravity-gradient torque in body coordinates.
 %
    IMoI_rhatcmvec = IMoIbody*rhatcmvec;
-   Tgravgradvec = ????;
+   Tgravgradvec = 3*(norbit^2)*cross(rhatcmvec,IMoI_rhatcmvec);
 %
 %  Compute the angular velocity rate using Euler's equation.
 %
    hvec = IMoIbody*omegavec;
-   omegavecdot = ????;
+   omegavecdot = IMoIbody\-(cross(omegavec,hvec)+Tgravgradvec);
 %
 %  Assemble the computed state time derivative elements
 %  into the output vector.

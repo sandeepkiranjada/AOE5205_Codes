@@ -14,7 +14,7 @@
 %
 %  Clear the Matlab workspace.
 %
-   clear
+   clear;clc;close all;
 %
 %  Set up the simulation parameters.
 %
@@ -77,16 +77,17 @@
 %
 %  Compute the nutation frequency.
 %  
-   omeganut = ????;
+   omeganut = abs(Ispin-Itr)*xhist(end,end)/Itr;
+   
 %
 %  Compute the theoretical body-axis spin vector component
 %  time histories that are valid for this axially-symmetric
 %  spacecraft.
 %
    signItrminusIspin = sign(Itr - Ispin);
-   omegabody1hist = ????;
-   omegabody2hist = ????;
-   omegabody3hist = ????;
+   omegabody1hist = xhist(:,5);
+   omegabody2hist = xhist(:,6);
+   omegabody3hist = xhist(:,7);
 %
 %  Plot the body-axes angular momentum time history.
 %
