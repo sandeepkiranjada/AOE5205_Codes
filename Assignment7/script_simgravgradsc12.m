@@ -14,7 +14,7 @@
 %
 %  Clear the Matlab workspace.
 %
-   clear
+   clear;clc;close all;
 %
 %  Set up the simulation parameters.  Load the body-axes moment-of-
 %  inertia matrix and the initial body-axes angular velocity

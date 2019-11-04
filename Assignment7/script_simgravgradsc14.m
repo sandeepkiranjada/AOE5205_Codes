@@ -21,7 +21,7 @@
 %
 %  Clear the Matlab workspace.
 %
-   clear
+   clear;clc;close all;
 %
 %  Load simulation parameters IMoIbody, norbit, omegabody0
 %  and q0 from the file simgravgradsc14_data.mat.
