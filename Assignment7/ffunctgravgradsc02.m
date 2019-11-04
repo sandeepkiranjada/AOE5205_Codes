@@ -96,7 +96,7 @@ function f = ffunctgravgradsc02(t,x,IMoIbody,norbit)
 %  Compute the angular velocity rate using Euler's equation.
 %
    hvec = IMoIbody*omegavec;
-   omegavecdot = IMoIbody\-(cross(omegavec,hvec)+Tgravgradvec);
+   omegavecdot = IMoIbody\(cross(-omegavec,hvec)+Tgravgradvec);
 %
 %  Assemble the computed state time derivative elements
 %  into the output vector.

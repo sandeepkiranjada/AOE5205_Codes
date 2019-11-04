@@ -193,7 +193,7 @@
    Itr1 = Iprsvec(1,1);
    Itr2 = Iprsvec(2,1);
    Ispin = Iprsvec(3,1);
-   omeganut = ????;
+   omeganut = omegaspinavg*sqrt( (Ispin - Itr1)*(Ispin - Itr2)/Itr2/Itr1);
 %
 %  Compute the theoretical body-axis spin vector component
 %  time histories that are valid for this axially-symmetric
@@ -208,10 +208,10 @@
 %  solutions in terms of the initial values omegabodynewhist(1,1)
 %  and omegabodynewhist(1,2).
 %
-   DoverA = ????;
+   DoverA = -sign(Itr2-Ispin)*sqrt(Itr1*(Ispin - Itr1)/Itr2/(Ispin - Itr2));
    BoverC = - (1/DoverA);                                 
-   omegabodynewapprox1hist = ????;
-   omegabodynewapprox2hist = ????;
+   omegabodynewapprox1hist = omegabodynewhist(1,1)*cos(omeganut*thist) + omegabodynewhist(1,2)*BoverC*sin(omeganut*thist);
+   omegabodynewapprox2hist = omegabodynewhist(1,2)*cos(omeganut*thist) + omegabodynewhist(1,1)*DoverA*sin(omeganut*thist);
    omegabodynewapprox3hist = omegaspinavg*ones(N,1);
    clear omegatRmaghist omegatRmagmean omegatrmagratio0 ...
          omeganewbody10approx omeganewbody20approx
