@@ -77,7 +77,7 @@
 %
 %  Compute the nutation frequency.
 %  
-   omeganut = abs(Ispin-Itr)*xhist(end,end)/Itr;
+   omeganut = abs(Ispin-Itr)*omegabody0(3)/Itr;
    
 %
 %  Compute the theoretical body-axis spin vector component
@@ -85,9 +85,9 @@
 %  spacecraft.
 %
    signItrminusIspin = sign(Itr - Ispin);
-   omegabody1hist = xhist(:,5);
-   omegabody2hist = xhist(:,6);
-   omegabody3hist = xhist(:,7);
+   omegabody1hist = omegabody0(1)*cos(omeganut*thist) +omegabody0(2)*signItrminusIspin*sin(omeganut*thist);
+   omegabody2hist = omegabody0(2)*cos(omeganut*thist) -omegabody0(1)*signItrminusIspin*sin(omeganut*thist);
+   omegabody3hist = ones(N,1)*omegabody0(3);
 %
 %  Plot the body-axes angular momentum time history.
 %
