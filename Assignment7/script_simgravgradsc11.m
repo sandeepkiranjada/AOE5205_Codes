@@ -144,3 +144,11 @@
    format long
    xfinal = xhist(end,:)'
    qfinalmag = norm(xfinal(1:4,1))
+   
+   disp('To verify that angular mommentum is conserved, we subtract the initial value of intertial angular mommentum from the rest of its time history and compute the norm. The closer this is to zero the better the conservation of angular momentum is. This would imply zero external torque')
+   disp('The norm on variation of inertial angular momentum is:')
+   disp(norm(hvecinertialhist(:,1)-hvecinertialhist(1,1))+norm(hvecinertialhist(:,2)-hvecinertialhist(1,2))+norm(hvecinertialhist(:,3)-hvecinertialhist(1,3)))
+   
+      
+   disp('The norm of the difference in the time histories between theory and simulated angular velocities is:')
+   disp(norm(omegabody1hist-xhist(:,5))+norm(omegabody2hist-xhist(:,6))+norm(omegabody3hist-xhist(:,7)))
