@@ -114,7 +114,7 @@
         ([phihist(1,1),thetahist(1,1),psihist(1,1)]*(180/pi)),...
         ':','LineWidth',1.5)
    hold off      
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (orbits)')
    ylabel('Euler Angle (deg)')
@@ -131,3 +131,5 @@
    save simgravgradsc14 
    format long
    xfinal = xhist(end,:)'
+   
+   disp('The system is unstable, evident from diverging yaw angle')

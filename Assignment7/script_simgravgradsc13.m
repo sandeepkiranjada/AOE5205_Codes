@@ -113,7 +113,7 @@
         ([phihist(1,1),thetahist(1,1),psihist(1,1)]*(180/pi)),...
         ':','LineWidth',1.5)
    hold off      
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (orbits)')
    ylabel('Euler Angle (deg)')
@@ -131,3 +131,5 @@
    format long
    xfinal = xhist(end,:)'
    qfinalmag = norm(xfinal(1:4,1))
+   
+   disp('The system produces a neutrally stable response, evident from the time histories showing non incresing crest and troughs in attitude over 6 orbits')

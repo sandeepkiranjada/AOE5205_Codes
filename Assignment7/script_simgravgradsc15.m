@@ -108,7 +108,7 @@
    hold on
    plot(thist*(1/Torbit),zeros(N,1),':','LineWidth',1.5)
    hold off      
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (orbits)')
    ylabel('Euler Angle (deg)')
@@ -124,3 +124,5 @@
    save simgravgradsc15 
    format long
    xfinal = xhist(end,:)'
+   
+   disp('The system is unstable, evident from diverging yaw angle. Though the time history shows behavior of marginally stable system, it reveals an chaotic behavior is larger time scales')

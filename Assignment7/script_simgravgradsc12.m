@@ -222,7 +222,7 @@
    figure(1)
    hold off
    plot(thist,hvecbodyhist,'LineWidth',2)
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (sec)')
    ylabel('Angular Momentum (N-m-sec)')
@@ -235,7 +235,7 @@
    figure(2)
    hold off
    plot(thist,hvecinertialhist,'LineWidth',2)
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (sec)')
    ylabel('Angular Momentum (N-m-sec)')
@@ -250,7 +250,7 @@
    figure(3)
    hold off
    plot(thist,omegabodynewhist,'-','LineWidth',2)
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',8)
    hold on
    plot(thist,[omegabodynewapprox1hist,omegabodynewapprox2hist,...
                omegabodynewapprox3hist],'.','MarkerSize',10)
@@ -274,7 +274,7 @@
              [omegabodynewapprox1hist,omegabodynewapprox2hist,...
                    omegabodynewapprox3hist] - omegabodynewhist;
    plot(thist,omegaapproxerrhist,'-','LineWidth',2)
-   set(get(gcf,'CurrentAxes'),'FontSize',16)
+   set(get(gcf,'CurrentAxes'),'FontSize',10)
    grid
    xlabel('Time (sec)')
    ylabel('Angular Velocity Approx. Errors (radians/sec)')
@@ -290,3 +290,7 @@
    save simgravgradsc12 
    format long
    xfinal = xhist(end,:)'
+   
+   disp('The following are the differences compared to script_simgravgradsc11.m:')
+   disp('1) The max amplitudes for angular velocities and angular momentums are different between w1 and w2. This is because of the difference I_tr1 and I_tr2');
+   disp('2) The w3 is not constant in the ode45, true to the dynamics. But the theoretical w3 is constant because of the assumption of small w1 and w2');
