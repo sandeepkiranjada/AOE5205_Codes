@@ -61,7 +61,7 @@
    n = size(x0,1);
    for jj = 1:3
       N = Nvec(jj,1)
-      deltat = ????;
+      deltat = (tf-t0)/N;
       Np1 = N + 1;
       thist03_euler = zeros(Np1,1);
       xhist03_euler = zeros(Np1,n);
@@ -74,9 +74,9 @@
       for k = 0:(N-1);
          tk = tkp1;
          xk = xkp1;
-         fk = ????;
-         tkp1 = ????;
-         xkp1 = ????;
+         fk = ffunctode45_03(tk,xk);
+         tkp1 = tk+deltat;
+         xkp1 = xk+deltat*fk;
          kp2 = k + 2;
          thist03_euler(kp2,1) = tkp1;
          xhist03_euler(kp2,:) = xkp1';
