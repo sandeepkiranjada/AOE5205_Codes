@@ -1,3 +1,4 @@
+%% Problem 1
 function [A,B] = linearizedmodelaircraft01(xeq,ueq,m,S,CLalpha,...
                                            CD0,oneoverpiARe)
 %
@@ -130,10 +131,10 @@ function [A,B] = linearizedmodelaircraft01(xeq,ueq,m,S,CLalpha,...
 %  Compute the lift and drag coefficients and their first 
 %  derivatives with respect to alpha.
 %
-   CL = ????;
-   CD = ????;
-   CLprime = ????;
-   CDprime = ????;
+   CL = CLalpha*alphaeq;
+   CD = CD0+CL^2*oneoverpiARe;
+   CLprime = CLalpha;
+   CDprime = 2*oneoverpiARe*CL*CLalpha;
 %
 %  Compute the air density using a decaying exponential
 %  model.  This model is good to about 1500 m altitude
@@ -170,19 +171,19 @@ function [A,B] = linearizedmodelaircraft01(xeq,ueq,m,S,CLalpha,...
 %
    cos_psieq = cos(psieq);
    sin_psieq = sin(psieq);
-   A(1,4) = ????;
-   A(1,6) = ????;
-   A(2,4) = ????;
-   A(2,6) = ????;
-   A(3,5) = ????;
+   A(1,4) = cos_psieq;
+   A(1,6) = -Veq*sin_psieq;
+   A(2,4) = sin_psieq;
+   A(2,6) = Veq*cos_psieq;
+   A(3,5) = -Veq;
    oneoverm = 1/m;
    rho_S_over_m = rho*S*oneoverm;
    rhoprime_S_over_twom = rhoprime*S/(2*m);
-   A(4,3) = ????;
-   A(4,4) = ????;
-   A(4,5) = ????;
-   A(5,3) = ????;
-   A(5,4) = ????;
+   A(4,3) = -rhoprime_S_over_twom*CD*Veqsq;
+   A(4,4) = -rho_S_over_m*Veq*CD;
+   A(4,5) = -g;
+   A(5,3) = rhoprime_S_over_twom*CL*Veq;
+   A(5,4) = rho_S_over_m*CL;
 %
 %  Compute the non-zero elements of B.
 %
@@ -190,8 +191,8 @@ function [A,B] = linearizedmodelaircraft01(xeq,ueq,m,S,CLalpha,...
    sin_alphaeq = sin(alphaeq);
    oneovermVeq = 1/(m*Veq);
    qbar_S = qbar*S;
-   B(4,1) = ????;
-   B(4,2) = ????;
-   B(5,1) = ????;
-   B(5,2) = ????;
-   B(6,3) = ????;
+   B(4,1) = cos_alphaeq/m;
+   B(4,2) = -(Teq*sin_alphaeq+qbar_S*CDprime)/m;
+   B(5,1) = sin_alphaeq*oneovermVeq;
+   B(5,2) = (Teq*cos_alphaeq+qbar_S*CLprime)*oneovermVeq;
+   B(6,3) = g/Veq;
